@@ -27,10 +27,15 @@ public class MainActivity extends ActionBarActivity {
                 String input = mEtInput.getText().toString();
                 Log.d("MainActivity", input);
                 i.putExtra("userInput", input);
-                startActivity(i);
+               // startActivity(i);
+                startActivityForResult(i, 1);
             }
         });
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d("MainActivity", "接收到返回值" + data.getStringExtra("data"));
+    }
 }
