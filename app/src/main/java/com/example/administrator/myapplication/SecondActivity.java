@@ -5,16 +5,20 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class SecondActivity extends ActionBarActivity {
 
+    private TextView mTvPassed;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+        mTvPassed = (TextView) findViewById(R.id.tv_passed);
         String userInput = getIntent().getStringExtra("userInput");
         Log.d("SecondActivity", "传进来的是： " + userInput);
+        mTvPassed.setText(userInput);
     }
 
     @Override
